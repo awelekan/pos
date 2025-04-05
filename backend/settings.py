@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import environ
 from pathlib import Path
 from datetime import timedelta
+import os
 
 # Initialize environment variables
 env = environ.Env()
@@ -26,7 +27,7 @@ SECRET_KEY = env("SECRET_KEY", default="your-default-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["pos-7ub5.onrender.com"])
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
@@ -81,8 +82,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    'default': env.db("DATABASE_URL", default="sqlite:///db.sqlite3")
-}
+    'default': env.db("DATABASE_URL"),
+}   
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -113,7 +114,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

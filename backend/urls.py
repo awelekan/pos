@@ -17,11 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
+from django.http import JsonResponse
+
+def api_root(request):
+    return JsonResponse({
+        "inventory": "/api/inventory/",
+        "auth": "/api/auth/",
+        "sales": "/api/sales/",
+    })
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/inventory/', include('inventory.urls')),
     path('api/auth/', include('accounts.urls')),
+    path('api/', api_root, name='api-root'),  # Root API view
     path('api/sales/', include('sales.urls')),
     path('favicon.ico', RedirectView.as_view(url='/static/favicon.ico', permanent=True)),  # Serve favicon
 ]

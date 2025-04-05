@@ -26,7 +26,7 @@ SECRET_KEY = env("SECRET_KEY", default="your-default-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["pos-7ub5.onrender.com"])
 
 # Application definition
 INSTALLED_APPS = [

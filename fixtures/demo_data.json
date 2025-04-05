@@ -1,0 +1,49 @@
+[
+    {
+        "model": "accounts.user",
+        "pk": 3,
+        "fields": {
+            "username": "manager",
+            "email": "manager@example.com",
+            "is_staff": true,
+            "is_superuser": true,
+            "password": "pbkdf2_sha256$260000$hashedpassword"
+        }
+    },
+    {
+        "model": "inventory.product",
+        "pk": 1,
+        "fields": {
+            "name": "Product A",
+            "price": 10.5,
+            "stock_quantity": 100
+        }
+    },
+    {
+        "model": "inventory.product",
+        "pk": 2,
+        "fields": {
+            "name": "Product B",
+            "price": 20.0,
+            "stock_quantity": 50
+        }
+    },
+    {
+        "model": "sales.sale",
+        "pk": 1,
+        "fields": {
+            "date": "2025-04-01",
+            "total_amount": 105.0,
+            "cashier": 3
+        }
+    },
+    {
+        "model": "sales.saleitem",
+        "pk": 1,
+        "fields": {
+            "sale": 1,
+            "product": 1,
+            "quantity": 10
+        }
+    }
+]

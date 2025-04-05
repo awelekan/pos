@@ -82,7 +82,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    'default': env.db("DATABASE_URL"),
+    'default': env.db("DATABASE_URL", default="")
+            
 }   
 
 # Password validation
